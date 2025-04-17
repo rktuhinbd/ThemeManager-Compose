@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Skills -->
+    <color name="skills_color_primary">#1B5E20</color>
+    <color name="skills_color_background">#121212</color>
+    <color name="skills_color_text">#FFFFFF</color>
+
+    <!-- Admission -->
+    <color name="admission_color_primary">#6A1B9A</color>
+    <color name="admission_color_background">#121212</color>
+    <color name="admission_color_text">#FFFFFF</color>
+
+    <!-- Jobs -->
+    <color name="jobs_color_primary">#1A237E</color>
+    <color name="jobs_color_background">#121212</color>
+    <color name="jobs_color_text">#FFFFFF</color>
+
+    <!-- Kids -->
+    <color name="kids_color_primary">#EF6C00</color>
+    <color name="kids_color_background">#121212</color>
+    <color name="kids_color_text">#FFFFFF</color>
+
+</resources>
