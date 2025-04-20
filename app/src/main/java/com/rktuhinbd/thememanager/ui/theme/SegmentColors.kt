@@ -9,44 +9,44 @@ data class SegmentColors(
     val text: Color,
 )
 
-val GreenThemeLight = SegmentColors(
-    primary = Color(0xFF1CAB55),
-    primaryDark = Color(0xFF0E7B4F),
+val IronManThemeLight = SegmentColors(
+    primary = Color(0xFFB71C1C),       // Deep Red
+    primaryDark = Color(0xFFFFD700),   // Gold
     background = Color.White,
-    text = Color(0xFF111827)
+    text = Color(0xFF1C1C1C)           // Almost Black
 )
 
-val GreenThemeDark = SegmentColors(
-    primary = Color(0xFF72E589),
-    primaryDark = Color(0xFFA4F6AC),
-    background = Color(0xFF111827),
-    text = Color(0xFFF3F4F6)
+val IronManThemeDark = SegmentColors(
+    primary = Color(0xFFFFD700),       // Gold (brighter for contrast)
+    primaryDark = Color(0xFFB71C1C),   // Deep Red
+    background = Color(0xFF1C1C1C),    // Dark Grey/Metal
+    text = Color(0xFFF5F5F5)           // Light Grey/White
 )
 
-val PurpleThemeLight = SegmentColors(
-    primary = Color(0xFFA855F7),
-    primaryDark = Color(0xFF7E22CE),
+val CaptainAmericaThemeLight = SegmentColors(
+    primary = Color(0xFF0A74DA),       // Captain Blue
+    primaryDark = Color(0xFFC8102E),   // Shield Red
     background = Color.White,
-    text = Color(0xFF111827)
+    text = Color(0xFF111827)           // Dark Text
 )
 
-val PurpleThemeDark = SegmentColors(
-    primary = Color(0xFFD8B4FE),
-    primaryDark = Color(0xFFE9D5FF),
-    background = Color(0xFF111827),
-    text = Color(0xFFF3F4F6)
+val CaptainAmericaThemeDark = SegmentColors(
+    primary = Color(0xFF68A8E8),       // Lighter Blue
+    primaryDark = Color(0xFFF28B99),   // Lighter Red
+    background = Color(0xFF0A0F1A),    // Deep Navy
+    text = Color(0xFFF3F4F6)           // Light Text
 )
 
-val OrangeThemeLight = SegmentColors(
-    primary = Color(0xFFF97316),
-    primaryDark = Color(0xFFEA580C),
+val HulkThemeLight = SegmentColors(
+    primary = Color(0xFF4CAF50),       // Hulk Green
+    primaryDark = Color(0xFF7E57C2),   // Hulk Purple
     background = Color.White,
-    text = Color(0xFF111827)
+    text = Color(0xFF111827)           // Dark Text
 )
 
-val OrangeThemeDark = SegmentColors(
-    primary = Color(0xFFFDBA74),
-    primaryDark = Color(0xFFFFEDD5),
-    background = Color(0xFF111827),
-    text = Color(0xFFF3F4F6)
+val HulkThemeDark = SegmentColors(
+    primary = Color(0xFF81C784),       // Soft Hulk Green
+    primaryDark = Color(0xFFB39DDB),   // Soft Hulk Purple
+    background = Color(0xFF111827),    // Dark Background
+    text = Color(0xFFF3F4F6)           // Light Text
 )

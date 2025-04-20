@@ -10,15 +10,15 @@ object ThemeManager {
     private const val KEY_SEGMENT = "segment"
 
     var isDarkMode: Boolean = false
-    var currentSegment: UserSegment = UserSegment.K12
+    var currentSegment: UserSegment = UserSegment.IRON_MAN
 
     fun loadTheme(context: Context) {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         isDarkMode = prefs.getBoolean(KEY_DARK_MODE, false)
-        currentSegment = when (prefs.getString(KEY_SEGMENT, UserSegment.K12.name)) {
-            UserSegment.SKILLS.name -> UserSegment.SKILLS
-            UserSegment.KIDS.name -> UserSegment.KIDS
-            else -> UserSegment.K12
+        currentSegment = when (prefs.getString(KEY_SEGMENT, UserSegment.IRON_MAN.name)) {
+            UserSegment.HULK.name -> UserSegment.HULK
+            UserSegment.CAPTAIN_AMERICA.name -> UserSegment.CAPTAIN_AMERICA
+            else -> UserSegment.IRON_MAN
         }
     }
 

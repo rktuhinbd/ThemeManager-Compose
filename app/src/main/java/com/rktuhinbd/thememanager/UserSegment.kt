@@ -1,5 +1,7 @@
 package com.rktuhinbd.thememanager
 
 enum class UserSegment {
-    K12, SKILLS, KIDS
+    IRON_MAN,
+    CAPTAIN_AMERICA,
+    HULK
 }
