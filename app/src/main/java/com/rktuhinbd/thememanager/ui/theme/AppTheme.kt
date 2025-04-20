@@ -8,7 +8,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.rktuhinbd.thememanager.UserSegment
 
-val LocalSegmentColors = staticCompositionLocalOf { GreenThemeLight }
+val LocalSegmentColors = staticCompositionLocalOf { IronManThemeLight }
 
 @Composable
 fun AppTheme(
@@ -17,9 +17,9 @@ fun AppTheme(
     content: @Composable () -> Unit
 ) {
     val segmentColors = when (segment) {
-        UserSegment.K12 -> if (darkTheme) GreenThemeDark else GreenThemeLight
-        UserSegment.SKILLS -> if (darkTheme) PurpleThemeDark else PurpleThemeLight
-        UserSegment.KIDS -> if (darkTheme) OrangeThemeDark else OrangeThemeLight
+        UserSegment.IRON_MAN -> if (darkTheme) IronManThemeLight else IronManThemeDark
+        UserSegment.CAPTAIN_AMERICA -> if (darkTheme) CaptainAmericaThemeLight else CaptainAmericaThemeDark
+        UserSegment.HULK -> if (darkTheme) HulkThemeLight else HulkThemeDark
     }
 
     val colorScheme = if (darkTheme) {
