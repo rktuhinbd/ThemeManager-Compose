@@ -6,20 +6,20 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.rktuhinbd.thememanager.UserSegment
+import com.rktuhinbd.thememanager.HeroSegment
 
 val LocalSegmentColors = staticCompositionLocalOf { IronManThemeLight }
 
 @Composable
 fun AppTheme(
     darkTheme: Boolean,
-    segment: UserSegment,
+    segment: HeroSegment,
     content: @Composable () -> Unit
 ) {
     val segmentColors = when (segment) {
-        UserSegment.IRON_MAN -> if (darkTheme) IronManThemeLight else IronManThemeDark
-        UserSegment.CAPTAIN_AMERICA -> if (darkTheme) CaptainAmericaThemeLight else CaptainAmericaThemeDark
-        UserSegment.HULK -> if (darkTheme) HulkThemeLight else HulkThemeDark
+        HeroSegment.IRON_MAN -> if (darkTheme) IronManThemeDark else IronManThemeLight
+        HeroSegment.CAPTAIN_AMERICA -> if (darkTheme) CaptainAmericaThemeDark else CaptainAmericaThemeLight
+        HeroSegment.HULK -> if (darkTheme) HulkThemeDark else HulkThemeLight
     }
 
     val colorScheme = if (darkTheme) {

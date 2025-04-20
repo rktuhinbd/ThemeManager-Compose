@@ -1,5 +1,6 @@
 package com.rktuhinbd.thememanager
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
@@ -23,14 +25,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.rktuhinbd.thememanager.ui.theme.AppTheme
 import com.rktuhinbd.thememanager.ui.theme.LocalSegmentColors
+import com.rktuhinbd.thememanager.ui.theme.ThemeManager
 
 @Composable
 fun HomeScreen(
     darkMode: Boolean,
-    segment: UserSegment,
-    onThemeChange: (Boolean, UserSegment) -> Unit
+    segment: HeroSegment,
+    onThemeChange: (Boolean, HeroSegment) -> Unit
 ) {
     val segmentColors = LocalSegmentColors.current
     var switchChecked by remember { mutableStateOf(darkMode) }
@@ -43,6 +51,26 @@ fun HomeScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        Text("Your Hero: ${segment.value}", color = segmentColors.text)
+
+        Spacer(Modifier.height(20.dp))
+
+        Image(
+            modifier = Modifier.size(256.dp),
+            painter = painterResource(
+                if (segment.value == "Captain America") {
+                    R.drawable.logo_captain_america
+                } else if (segment.value == "Hulk") {
+                    R.drawable.logo_hulk
+                } else {
+                    R.drawable.logo_iron_man
+                }
+            ),
+            contentScale = ContentScale.Inside,
+            contentDescription = segment.value
+        )
+
         Text("Current Mode: ${if (switchChecked) "Dark" else "Light"}", color = segmentColors.text)
 
         Row(
@@ -73,18 +101,34 @@ fun HomeScreen(
 
         Spacer(Modifier.height(20.dp))
 
-        Text("Segment: ${segment.name}", color = segmentColors.text)
-
-        Button(onClick = { onThemeChange(darkMode, UserSegment.IRON_MAN) }) {
+        Button(onClick = { onThemeChange(darkMode, HeroSegment.IRON_MAN) }) {
             Text("Iron Man", color = segmentColors.text)
         }
 
-        Button(onClick = { onThemeChange(darkMode, UserSegment.CAPTAIN_AMERICA) }) {
+        Button(onClick = { onThemeChange(darkMode, HeroSegment.CAPTAIN_AMERICA) }) {
             Text("Captain America", color = segmentColors.text)
         }
 
-        Button(onClick = { onThemeChange(darkMode, UserSegment.HULK) }) {
+        Button(onClick = { onThemeChange(darkMode, HeroSegment.HULK) }) {
             Text("Hulk", color = segmentColors.text)
         }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun ScreenPreview() {
+
+    val context = LocalContext.current
+
+    AppTheme(darkTheme = true, segment = HeroSegment.IRON_MAN) {
+        HomeScreen(
+            darkMode = true,
+            segment = HeroSegment.IRON_MAN,
+            onThemeChange = { newDark, newSegment ->
+                ThemeManager.saveTheme(context, newDark, newSegment)
+            }
+        )
     }
 }
