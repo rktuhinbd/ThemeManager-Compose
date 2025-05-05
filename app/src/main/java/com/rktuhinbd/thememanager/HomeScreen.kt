@@ -107,14 +107,17 @@ fun HomeScreen(
         Spacer(Modifier.height(20.dp))
 
         Button(onClick = { onThemeChange(darkMode, HeroSegment.IRON_MAN) }) {
+            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
             Text("Iron Man", color = segmentColors.text)
         }
 
         Button(onClick = { onThemeChange(darkMode, HeroSegment.CAPTAIN_AMERICA) }) {
+            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
             Text("Captain America", color = segmentColors.text)
         }
 
         Button(onClick = { onThemeChange(darkMode, HeroSegment.HULK) }) {
+            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
             Text("Hulk", color = segmentColors.text)
         }
     }
