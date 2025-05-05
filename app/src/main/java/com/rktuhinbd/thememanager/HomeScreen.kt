@@ -25,8 +25,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -40,6 +42,8 @@ fun HomeScreen(
     segment: HeroSegment,
     onThemeChange: (Boolean, HeroSegment) -> Unit
 ) {
+    val haptic = LocalHapticFeedback.current
+
     val segmentColors = LocalSegmentColors.current
     var switchChecked by remember { mutableStateOf(darkMode) }
 
@@ -83,6 +87,7 @@ fun HomeScreen(
             Switch(
                 checked = switchChecked,
                 onCheckedChange = {
+                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                     switchChecked = it
                     onThemeChange(it, segment)
                 },
